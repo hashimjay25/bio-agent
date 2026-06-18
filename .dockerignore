@@ -53,7 +53,7 @@ data/
 # ── Files outside the agent build context ────────────────────────────────────
 streamlit_app.py
 streamlit_requirements.txt
-utility_funcs/
+scripts/
 azure_ml/
 
 # ── Docs / repo files ────────────────────────────────────────────────────────

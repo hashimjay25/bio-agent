@@ -1,0 +1,62 @@
+# ── Secrets (must NEVER end up inside an image) ──────────────────────────────
+.env
+.env.*
+!.env.template
+*.pem
+*.key
+*.pfx
+*.crt
+
+# ── Local dev environments ───────────────────────────────────────────────────
+.venv/
+venv/
+env/
+.python-version
+
+# ── VCS / IDE ────────────────────────────────────────────────────────────────
+.git/
+.gitignore
+.gitattributes
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ── Python build / cache artifacts ───────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# ── Local data / model artifacts not needed in the agent image ───────────────
+*.pkl
+*.joblib
+*.onnx
+outputs/
+mlruns/
+.azure/
+.stubs/
+
+# ── Datasets (the agent doesn't need training/inference CSVs in the image) ───
+data/
+*.csv
+
+# ── Files outside the agent build context ────────────────────────────────────
+streamlit_app.py
+streamlit_requirements.txt
+utility_funcs/
+azure_ml/
+
+# ── Docs / repo files ────────────────────────────────────────────────────────
+README.md
+LICENSE
+*.md

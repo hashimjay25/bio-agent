@@ -1,0 +1,18 @@
+# Hosted-agent runtime (Microsoft Foundry sample stack):
+agent-framework>=1.2.2
+agent-framework-foundry-hosting
+
+# ── Azure SDKs ─────────────────────────────────────────────────────────────
+azure-ai-projects>=1.0.0
+azure-identity>=1.17.0
+
+# ── Data processing ────────────────────────────────────────────────────────
+pandas>=2.0.0
+numpy>=1.26.0
+
+# ── HTTP calls to Azure ML endpoint ───────────────────────────────────────
+requests>=2.31.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────
+python-dotenv>=1.0.0
+debugpy

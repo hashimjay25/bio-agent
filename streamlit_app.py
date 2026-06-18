@@ -24,7 +24,7 @@ load_dotenv(override=True)
 AGENT_NAME = os.environ.get("FOUNDRY_AGENT_NAME", "bio-risk-agent")
 ENDPOINT = os.environ.get("FOUNDRY_PROJECT_ENDPOINT", "").rstrip("/")
 
-st.set_page_config(page_title="Bio-Risk Agent", page_icon="🧬", layout="wide")
+st.set_page_config(page_title="Bio-Risk Agent", layout="wide")
 st.title("🧬 Bio-Risk Agent")
 st.caption(f"Hosted in Foundry · Agent: **{AGENT_NAME}**")
 
@@ -132,7 +132,7 @@ with st.sidebar:
         st.write("**Files in session:**")
         for n in st.session_state["uploaded"]:
             st.write(f"• `{n}`")
-    if st.button("🔄 New session"):
+    if st.button("New session"):
         for k in ("session_id", "last_response_id", "messages", "uploaded"):
             st.session_state.pop(k, None)
         st.rerun()

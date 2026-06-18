@@ -1,4 +1,4 @@
-# 🧬 Bio-Risk Agent
+# Bio-Risk Agent
 
 End-to-end **cardiovascular risk analysis** demo built on Microsoft Foundry,
 Azure ML, and Streamlit.
@@ -46,14 +46,14 @@ streamlit run streamlit_app.py
         └──────────────────────────────┴─────────────────────────────────┘
 ```
 
-| Component        | Tech                                                      | Code                                    |
-|------------------|-----------------------------------------------------------|-----------------------------------------|
-| Frontend         | Streamlit                                                 | [streamlit_app.py](streamlit_app.py)    |
-| Hosted agent     | `agent_framework` + Foundry Responses protocol, Docker    | [agent/](agent/)                        |
-| Agent deployer   | Builds + pushes image, registers Foundry agent version    | [scripts/deploy_agent.py](scripts/deploy_agent.py) |
-| Model training   | XGBoost in scikit-learn pipeline, on Azure ML compute     | [azure_ml/train.py](azure_ml/train.py)  |
-| Model serving    | Azure ML managed online endpoint, AAD auth                | [azure_ml/score.py](azure_ml/score.py)  |
-| Infra (optional) | Bicep / `azd` templates for Foundry project + dependencies| [infra/](infra/)                        |
+| Component        | Tech                                                        | Code                                            |
+| ---------------- | ----------------------------------------------------------- | ----------------------------------------------- |
+| Frontend         | Streamlit                                                   | [streamlit_app.py](streamlit_app.py)               |
+| Hosted agent     | `agent_framework` + Foundry Responses protocol, Docker    | [agent/](agent/)                                   |
+| Agent deployer   | Builds + pushes image, registers Foundry agent version      | [scripts/deploy_agent.py](scripts/deploy_agent.py) |
+| Model training   | XGBoost in scikit-learn pipeline, on Azure ML compute       | [azure_ml/train.py](azure_ml/train.py)             |
+| Model serving    | Azure ML managed online endpoint, AAD auth                  | [azure_ml/score.py](azure_ml/score.py)             |
+| Infra (optional) | Bicep /`azd` templates for Foundry project + dependencies | [infra/](infra/)                                   |
 
 The model predicts the **10-year risk of coronary heart disease (`TenYearCHD`)**
 from 15 features: gender, age, education, currentSmoker, cigsPerDay, BPMeds,
@@ -200,18 +200,18 @@ The CLI calls the Azure ML endpoint directly using your `.env` config.
 
 See [.env.template](.env.template) for the full list. Required for normal use:
 
-| Variable                          | Purpose                                                |
-|-----------------------------------|--------------------------------------------------------|
-| `FOUNDRY_PROJECT_ENDPOINT`        | Foundry project URL                                    |
-| `FOUNDRY_MODEL_DEPLOYMENT_NAME`   | Chat model deployment (e.g. `gpt-4.1`)                 |
-| `ML_ENDPOINT_URL`                 | Azure ML scoring URI from `azure_ml/deploy.py`         |
-| `ML_AUTH_MODE`                    | `aad` (the only mode currently supported)              |
-| `ML_AAD_SCOPE`                    | Optional, defaults to `https://ml.azure.com/.default`  |
-| `AZURE_ML_SUBSCRIPTION_ID`        | Used by training + deploy scripts                      |
-| `AZURE_ML_RESOURCE_GROUP`         | "                                                      |
-| `AZURE_ML_WORKSPACE_NAME`         | "                                                      |
-| `AZURE_ML_COMPUTE_NAME`           | Compute cluster used to run the training job           |
-| `FOUNDRY_AGENT_NAME` *(optional)* | Defaults to `bio-risk-agent`                           |
+| Variable                              | Purpose                                                 |
+| ------------------------------------- | ------------------------------------------------------- |
+| `FOUNDRY_PROJECT_ENDPOINT`          | Foundry project URL                                     |
+| `FOUNDRY_MODEL_DEPLOYMENT_NAME`     | Chat model deployment (e.g.`gpt-4.1`)                 |
+| `ML_ENDPOINT_URL`                   | Azure ML scoring URI from `azure_ml/deploy.py`        |
+| `ML_AUTH_MODE`                      | `aad` (the only mode currently supported)             |
+| `ML_AAD_SCOPE`                      | Optional, defaults to `https://ml.azure.com/.default` |
+| `AZURE_ML_SUBSCRIPTION_ID`          | Used by training + deploy scripts                       |
+| `AZURE_ML_RESOURCE_GROUP`           | "                                                       |
+| `AZURE_ML_WORKSPACE_NAME`           | "                                                       |
+| `AZURE_ML_COMPUTE_NAME`             | Compute cluster used to run the training job            |
+| `FOUNDRY_AGENT_NAME` *(optional)* | Defaults to `bio-risk-agent`                          |
 
 ---
 

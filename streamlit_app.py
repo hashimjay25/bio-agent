@@ -25,7 +25,7 @@ AGENT_NAME = os.environ.get("FOUNDRY_AGENT_NAME", "bio-risk-agent")
 ENDPOINT = os.environ.get("FOUNDRY_PROJECT_ENDPOINT", "").rstrip("/")
 
 st.set_page_config(page_title="Bio-Risk Agent", layout="wide")
-st.title("🧬 Bio-Risk Agent")
+st.title("Bio-Risk Agent")
 st.caption(f"Hosted in Foundry · Agent: **{AGENT_NAME}**")
 
 if not ENDPOINT:
